@@ -5,6 +5,7 @@ import com.example.webpos.model.Cart;
 import com.example.webpos.model.Item;
 import com.example.webpos.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -21,7 +22,6 @@ public class PosServiceImp implements PosService, Serializable {
     public void setPosDB(PosDB posDB) {
         this.posDB = posDB;
     }
-
 
     @Override
     public Product randomProduct() {
@@ -42,13 +42,15 @@ public class PosServiceImp implements PosService, Serializable {
     public Cart add(Cart cart, String productId, int amount) {
 
         Product product = posDB.getProduct(productId);
-        if (product == null) return cart;
+        if (product == null)
+            return cart;
 
         cart.addItem(new Item(product, amount));
         return cart;
     }
 
     @Override
+    @Cacheable(value = "products")
     public List<Product> products() {
         return posDB.getProducts();
     }

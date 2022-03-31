@@ -32,7 +32,7 @@ Please **write a report** on the performance differences you notices among the a
 
 
 
-JMeter 负载测试 (实际是压力测试)
+JMeter 负载测试 (实际上压力测试)
 
 ![image-20220327213350174](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327213350174.png)
 
@@ -80,6 +80,12 @@ JMeter 负载测试 (实际是压力测试)
 
 ![image-20220327233505173](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327233505173.png)
 
+也改了Session
+
 通过计时和logging方式验证了这个Cache可以生效，不会重复访问 posDB.getProducts()，于是重新打包并重新部署到docker上，进行JMeter压测
 
 ![image-20220328155821674](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220328155821674.png)
+
+
+
+总感觉13差不多，然后2的话偏离更多一些看上去更不稳定，不知道为什么。。。

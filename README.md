@@ -28,15 +28,15 @@ Please **write a report** on the performance differences you notices among the a
 
 1. 部署在docker上
 
-![image-20220327195917049](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327195917049.png)
+![image-20220327195917049](README.assets/image-20220327195917049.png)
 
 
 
 JMeter 负载测试 (实际上压力测试)
 
-![image-20220327213350174](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327213350174.png)
+![image-20220327213350174](README.assets/image-20220327213350174.png)
 
-![image-20220327213336526](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327213336526.png)
+![image-20220327213336526](README.assets/image-20220327213336526.png)
 
 
 
@@ -46,25 +46,25 @@ JMeter 负载测试 (实际上压力测试)
 
 安装haproxy并配置
 
-![image-20220327224123638](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327224123638.png)
+![image-20220327224123638](README.assets/image-20220327224123638.png)
 
 千辛万苦终于运行成功haproxy
 
-![image-20220327224143356](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327224143356.png)
+![image-20220327224143356](README.assets/image-20220327224143356.png)
 
 貌似有点小问题，刷新网页有的时候没有商品，不过不要紧
 
 我们随便访问 127.0.0.1:80，可以发现这边 haproxy 已经有记录了
 
-![image-20220327224603545](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327224603545.png)
+![image-20220327224603545](README.assets/image-20220327224603545.png)
 
 接下来再次运行 JMeter 压测，端口改成 80
 
-![image-20220327224804816](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327224804816.png)
+![image-20220327224804816](README.assets/image-20220327224804816.png)
 
 这是 haproxy 统计页面
 
-![image-20220327224854265](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327224854265.png)
+![image-20220327224854265](README.assets/image-20220327224854265.png)
 
 
 
@@ -74,17 +74,17 @@ JMeter 负载测试 (实际上压力测试)
 
 开启 Cache
 
-![image-20220328155255634](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220328155255634.png)
+![image-20220328155255634](README.assets/image-20220328155255634.png)
 
 添加 Cacheable
 
-![image-20220327233505173](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220327233505173.png)
+![image-20220327233505173](README.assets/image-20220327233505173.png)
 
 也改了Session
 
 通过计时和logging方式验证了这个Cache可以生效，不会重复访问 posDB.getProducts()，于是重新打包并重新部署到docker上，进行JMeter压测
 
-![image-20220328155821674](E:\大学资料\计算机课\软件体系结构\aw04-PandaAwAke\README.assets\image-20220328155821674.png)
+![image-20220328155821674](README.assets/image-20220328155821674.png)
 
 
 
